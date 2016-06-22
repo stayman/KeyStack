@@ -1,6 +1,6 @@
 var React = require('react');
-var Children = React.children;
-var PropTypes = React.PorpTypes;
+var Children = React.Children;
+var PropTypes = React.PropTypes;
 var keyStack = require('./keyStack');
 
 var KeyDown = module.exports = React.createClass({
