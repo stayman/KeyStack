@@ -3,7 +3,7 @@ var Children = React.Children;
 var PropTypes = React.PropTypes;
 var keyStack = require('./keyStack');
 var ExecutionEnvironment = require('exenv');
-console.log
+
 var KeyDown = module.exports = React.createClass({
 
   propTypes: {
