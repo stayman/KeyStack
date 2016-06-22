@@ -14,16 +14,11 @@ chai.use(sinonChai);
 describe('KeyDown', function() {
   beforeEach(function() {
     this.spy = sinon.spy(keyStack, 'stack');
-    global.__CLIENT__ = true;
   });
 
   afterEach(function() {
     keyStack.remove(this.elm); // cleanup
     this.spy.restore();
-  });
-
-  after(function() {
-    delete global.__CLIENT__;
   });
 
   it('should validate shortcut, action, and children', function() {
@@ -43,7 +38,7 @@ describe('KeyDown', function() {
   });
 
   it('should not add the element to the stack if __CLIENT__ is false', function() {
-    global.__CLIENT__ = false;
+    require('exenv').canUseDOM = false;
     this.elm = enzyme.shallow(
       <KeyDown shortcut="esc" action={function() {}}>
         <Dummy />
@@ -51,6 +46,7 @@ describe('KeyDown', function() {
     );
 
     expect(this.spy).not.to.have.beenCalled;
+    require('exenv').canUseDOM = true;
   });
 
   it('should not add any DOM elements', function() {
