@@ -2,6 +2,7 @@ var React = require('react');
 var Children = React.Children;
 var PropTypes = React.PropTypes;
 var keyStack = require('./keyStack');
+var canUseDOM = require('exenv').canUseDOM;
 
 var KeyDown = module.exports = React.createClass({
 
@@ -14,7 +15,7 @@ var KeyDown = module.exports = React.createClass({
   // using componentWillMount gives us a predictable call direction vs. componentDidMount
   // see: https://github.com/facebook/react/issues/4752
   componentWillMount: function() {
-    if (__CLIENT__) { // or canUseDom from react extras
+    if (canUseDOM()) { // or canUseDom from react extras
       keyStack.stack(this)
     }
   },

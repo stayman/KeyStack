@@ -31,5 +31,8 @@
     "react-dom": "^15.1.0",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0"
+  },
+  "dependencies": {
+    "exenv": "^1.2.1"
   }
 }
