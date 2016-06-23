@@ -37,7 +37,7 @@ describe('KeyDown', function() {
     expect(this.spy).to.have.been.called;
   });
 
-  it('should not add the element to the stack if __CLIENT__ is false', function() {
+  it('should not add the element to the stack if the DOM is unavailable', function() {
     require('exenv').canUseDOM = false;
     this.elm = enzyme.shallow(
       <KeyDown shortcut="esc" action={function() {}}>
