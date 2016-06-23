@@ -1,13 +1,8 @@
 var keyStack = require('../../lib/keyStack');
+var createElement = require('../mocks/fakeComponent');
 var stack = keyStack.stack;
 var listen = keyStack.listen;
 var remove = keyStack.remove;
-var sinon = require('sinon');
-var sinonChai = require('sinon-chai');
-var chai = require('chai');
-var createElement = require('../mocks/fakeComponent');
-var expect = chai.expect;
-chai.use(sinonChai);
 
 describe('keyStack.listen', function() {
 

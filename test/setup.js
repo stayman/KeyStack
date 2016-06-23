@@ -1,19 +1,7 @@
-// taken from: http://jaketrent.com/post/testing-react-with-jsdom/
-var jsdom = require('jsdom');
+var chai = require('chai');
+var sinonChai = require('sinon-chai');
+chai.use(sinonChai);
 
-var doc = jsdom.jsdom('<html><body></body></html>');
-var win = doc.defaultView;
-global.noop = function() {};
-global.document = doc;
-global.window = win;
-
-function propagateToGlobal (window) {
-  for (let key in window) {
-    if (!window.hasOwnProperty(key)) continue
-    if (key in global) continue
-
-    global[key] = window[key]
-  }
-}
-
-propagateToGlobal(win);
+global.sinon = require('sinon');
+global.enzyme = require('enzyme');
+global.expect = chai.expect;

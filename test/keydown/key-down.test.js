@@ -1,15 +1,9 @@
 var React = require('react');
 var KeyDown = require('../../lib/KeyDown');
 var keyStack = require('../../lib/keyStack');
-var remove = keyStack.remove;
 var Dummy = require('../mocks/Dummy');
-var enzyme = require('enzyme');
-var chai = require('chai');
-var sinon = require('sinon');
-var sinonChai = require('sinon-chai');
 
-var expect = chai.expect;
-chai.use(sinonChai);
+var remove = keyStack.remove;
 
 describe('KeyDown', function() {
   beforeEach(function() {
